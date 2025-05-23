@@ -30,7 +30,7 @@ static OGS_POOL(server_pool, ogs_sbi_server_t);
 void ogs_sbi_server_init(int num_of_session_pool, int num_of_stream_pool)
 {
     if (ogs_sbi_server_actions_initialized == false) {
-#if 1 /* Use HTTP2 */
+#if 0 /* Use HTTP2 */
         ogs_sbi_server_actions = ogs_nghttp2_server_actions;
 #else
         ogs_sbi_server_actions = ogs_mhd_server_actions;
