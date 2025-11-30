@@ -471,9 +471,9 @@ ogs_pkbuf_t *gmm_build_security_mode_command(amf_ue_t *amf_ue)
     additional_security_information->
         retransmission_of_initial_nas_message_request = 1;
 
-    ogs_assert(amf_ue->selected_int_algorithm !=
+    /*ogs_assert(amf_ue->selected_int_algorithm !=
             OGS_NAS_SECURITY_ALGORITHMS_EIA0);
-
+    */
     ogs_kdf_nas_5gs(OGS_KDF_NAS_INT_ALG, amf_ue->selected_int_algorithm,
             amf_ue->kamf, amf_ue->knas_int);
     ogs_kdf_nas_5gs(OGS_KDF_NAS_ENC_ALG, amf_ue->selected_enc_algorithm,
