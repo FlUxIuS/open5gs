@@ -549,7 +549,7 @@ static connection_t *connection_add(
 
     curl_easy_setopt(conn->easy, CURLOPT_HTTPHEADER, conn->header_list);
 
-#if 1 /* Use HTTP2 */
+#if 0 /* Use HTTP2 */
     curl_easy_setopt(conn->easy,
             CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE);
 #endif

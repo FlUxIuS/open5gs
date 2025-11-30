@@ -1685,11 +1685,11 @@ static void common_register_state(ogs_fsm_t *s, amf_event_t *e,
             break;
 
         case OGS_NAS_5GS_UL_NAS_TRANSPORT:
-            if (!h.integrity_protected || !SECURITY_CONTEXT_IS_VALID(amf_ue)) {
+            /*if (!h.integrity_protected || !SECURITY_CONTEXT_IS_VALID(amf_ue)) {
                 ogs_error("No Security Context");
                 AMF_RESTORE_CONTEXT_ON_FAILURE(amf_ue, s);
                 break;
-            }
+            }*/
 
             gmm_handle_ul_nas_transport(
                     ran_ue, amf_ue, &nas_message->gmm.ul_nas_transport);
@@ -1959,7 +1959,7 @@ void gmm_state_authentication(ogs_fsm_t *s, amf_event_t *e)
                         amf_ue->selected_enc_algorithm =
                             amf_selected_enc_algorithm(amf_ue);
 
-                        if (amf_ue->selected_int_algorithm ==
+                        /*if (amf_ue->selected_int_algorithm ==
                                 OGS_NAS_SECURITY_ALGORITHMS_EIA0) {
                             ogs_error("Encrypt[0x%x] can be skipped "
                                 "with NEA0, but Integrity[0x%x] cannot be "
@@ -1968,7 +1968,7 @@ void gmm_state_authentication(ogs_fsm_t *s, amf_event_t *e)
                                 amf_ue->selected_int_algorithm);
                             AMF_RESTORE_CONTEXT_ON_FAILURE(amf_ue, s);
                             break;
-                        }
+                        }*/
 
                         OGS_FSM_TRAN(&amf_ue->sm, &gmm_state_security_mode);
                     }
@@ -2136,16 +2136,16 @@ void gmm_state_security_mode(ogs_fsm_t *s, amf_event_t *e)
          * of NAS messages has been established, then the NAS shall discard
          * this message.
          */
-            if (h.integrity_protected == 0) {
+            /*if (h.integrity_protected == 0) {
                 ogs_error("[%s] Security-mode : No Integrity Protected",
                         amf_ue->supi);
                 break;
-            }
+            }*/
 
-            if (!SECURITY_CONTEXT_IS_VALID(amf_ue)) {
+            /*if (!SECURITY_CONTEXT_IS_VALID(amf_ue)) {
                 ogs_error("[%s] No Security Context", amf_ue->supi);
                 break;
-            }
+            }*/
 
             /*
              * If the OLD RAN_UE is being maintained in AMF-UE Context,
